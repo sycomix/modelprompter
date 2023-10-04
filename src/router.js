@@ -1,25 +1,26 @@
-class Router {
+import tui from './tui.js'
+
+export default class Router {
   constructor (options = {}) {
     this.routes = options?.routes || []
-    this.route = options?.route || '/'
+    this.path = options?.route || '/'
+    this.route = null
   }
 
-  loadRoute (route = '/') {
+  loadRoute (path = '/') {
     // Find the route object
-    const $route = this.routes.find(r => r.path === route)
+    const route = this.routes.find(r => r.path === path)
     
     // If the route object exists, load the component
-    if ($route) {
-      $route.component.then(module => {
+    if (route) {
+      route.component?.then(module => {
         // Set the route
-        this.route = route
+        this.path = route
         // Render the component
-        module.default()
+        this.route = new tui(module.default)
       })
     } else {
       console.error(`Route not found: ${route}`, this.routes)
     }
   }
 }
-
-export default Router

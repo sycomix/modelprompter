@@ -1,6 +1,6 @@
 import Router from './router'
 
-class App {
+export default class App {
   constructor (opts) {
     this.router = new Router(opts)
     this.init()
@@ -10,5 +10,3 @@ class App {
     this.router.loadRoute()
   }
 }
-
-export default App

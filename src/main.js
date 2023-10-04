@@ -1,7 +1,7 @@
 import App from './app'
 
 new App({
-  route: '/',
+  path: '/',
   routes: [
     {
       path: '/',
