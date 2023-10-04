@@ -1,5 +1,6 @@
 {
   "name": "modelprompter",
+  "version": "0.0.1",
   "module": "src/main.js",
   "devDependencies": {
     "bun-types": "latest"
@@ -8,7 +9,7 @@
     "typescript": "^5.0.0"
   },
   "scripts": {
-    "start": "bun --hot src/main.js"
+    "start": "bun --watch src/main.js"
   },
   "type": "module",
   "dependencies": {
