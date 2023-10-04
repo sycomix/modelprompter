@@ -1,0 +1,17 @@
+{
+  "name": "modelprompter",
+  "module": "src/main.js",
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "start": "bun --hot src/main.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "blessed": "^0.1.81"
+  }
+}
