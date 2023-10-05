@@ -22,7 +22,7 @@ console.error = console.warn = console.log = (...args) => {
     left: 'center',
     top: 'center',
 
-    content: stringify(args),
+    content: typeof args?.[0] === 'string' ? args?.[0] : stringify(args),
 
     tags: true,
     keys: true,

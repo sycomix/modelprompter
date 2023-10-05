@@ -8,11 +8,6 @@ export default class {
     // Setup the blessed instance
     this.root = blessed.box({
       parent: this.screen || this.app.root,
-      title: opts.title || 'Untitled',
-      smartCSR: this.smartCSR || true,
-      tabSize: this.tabSize || 2,
-      autoPadding: this.autoPadding || true,
-      dockBorders: this.dockBorders || true,
     })
 
     // Defaults and render
