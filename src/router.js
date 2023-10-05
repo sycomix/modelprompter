@@ -1,25 +1,31 @@
 import tui from './tui.js'
 
 export default class Router {
-  constructor (options = {}) {
-    this.routes = options?.routes || []
+  constructor (app, options = {}) {
+    Object.assign(this, options)
+    this.app = app
     this.path = options?.route || '/'
-    this.route = null
   }
 
   loadRoute (path = '/') {
     // Find the route object
-    const route = this.routes.find(r => r.path === path)
+    const route = this.app.routes.find(r => r.path === path)
     
     // If the route object exists, load the component
-    if (route) {
+    if (route?.component) {
       route.component?.then(module => {
         // Set the route
         this.path = route
-        // Render the component
-        this.route = new tui(module.default)
+        // Update the this.app.routes
+        this.app.routes = this.app.routes.map(r => {
+          if (r.path === path) {
+            r.component = new tui(this, module.default)
+          }
+          return r
+        })
       })
     } else {
+      this.path = ''
       console.error(`Route not found: ${route}`, this.routes)
     }
   }

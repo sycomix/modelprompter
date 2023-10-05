@@ -13,6 +13,7 @@
   },
   "type": "module",
   "dependencies": {
-    "blessed": "^0.1.81"
+    "blessed": "^0.1.81",
+    "flatted": "^3.2.9"
   }
 }
